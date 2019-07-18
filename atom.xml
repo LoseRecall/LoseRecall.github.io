@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://LoseRecall.github.io</id>
     <title>LoseRecall</title>
-    <updated>2019-07-17T07:27:29.669Z</updated>
+    <updated>2019-07-18T02:44:14.115Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://LoseRecall.github.io"/>
     <link rel="self" href="https://LoseRecall.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://LoseRecall.github.io/images/avatar.png</logo>
     <icon>https://LoseRecall.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, LoseRecall</rights>
+    <entry>
+        <title type="html"><![CDATA[expo创建的React Native项目，运行模拟器出错 ]]></title>
+        <id>https://LoseRecall.github.io/post/expo-chuang-jian-de-react-native-xiang-mu-yun-xing-mo-ni-qi-chu-cuo</id>
+        <link href="https://LoseRecall.github.io/post/expo-chuang-jian-de-react-native-xiang-mu-yun-xing-mo-ni-qi-chu-cuo">
+        </link>
+        <updated>2019-07-18T02:25:15.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="官方给的方法">官方给的方法：</h1>
+<p>不能工作? Expo CLI 在自动安装Expo客户端方面偶尔会出现问题，通常是由于您的环境与Xcode存在微小的差异。如果您需要手动的安装Expo客户端到您的模拟器，您可以跟着如下步骤进行操作：</p>
+<p>下载 最新的模拟器构建程序.<br>
+抽象这个过程如下:<br>
+mkdir Exponent-X.XX.X.app &amp;&amp; tar xvf Exponent-X.XX.X.tar.gz -C Exponent-X.XX.X.app. 你应该可以得到类似 Exponent-X.XX.X.app这样的目录文件。<br>
+确定模拟器是在运行的.<br>
+启动一个终端, 运行如下代码 xcrun simctl install booted [path to Exponent-X.XX.X.app].*</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="官方给的方法">官方给的方法：</h1>
+<p>不能工作? Expo CLI 在自动安装Expo客户端方面偶尔会出现问题，通常是由于您的环境与Xcode存在微小的差异。如果您需要手动的安装Expo客户端到您的模拟器，您可以跟着如下步骤进行操作：</p>
+<p>下载 最新的模拟器构建程序.<br>
+抽象这个过程如下:<br>
+mkdir Exponent-X.XX.X.app &amp;&amp; tar xvf Exponent-X.XX.X.tar.gz -C Exponent-X.XX.X.app. 你应该可以得到类似 Exponent-X.XX.X.app这样的目录文件。<br>
+确定模拟器是在运行的.<br>
+启动一个终端, 运行如下代码 xcrun simctl install booted [path to Exponent-X.XX.X.app].*</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://LoseRecall.github.io/post/hello-gridea</id>

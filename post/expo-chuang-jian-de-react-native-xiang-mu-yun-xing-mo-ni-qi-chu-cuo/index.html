@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | LoseRecall</title>
+<title>expo创建的React Native项目，运行模拟器出错  | LoseRecall</title>
 <meta name="description" content="苟利国家生死以，岂因祸福避趋之" />
 <link rel="shortcut icon" href="https://LoseRecall.github.io/favicon.ico?v=1563417669879">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,11 +73,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              expo创建的React Native项目，运行模拟器出错 
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2019-07-18
               </span>
               <span>
                 1 min read
@@ -87,16 +87,44 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>这是关于的页面，可以在这里向世界介绍你！</p>
+                <h1 id="官方给的方法">官方给的方法：</h1>
+<p>不能工作? Expo CLI 在自动安装Expo客户端方面偶尔会出现问题，通常是由于您的环境与Xcode存在微小的差异。如果您需要手动的安装Expo客户端到您的模拟器，您可以跟着如下步骤进行操作：</p>
+<p>下载 最新的模拟器构建程序.<br>
+抽象这个过程如下:<br>
+mkdir Exponent-X.XX.X.app &amp;&amp; tar xvf Exponent-X.XX.X.tar.gz -C Exponent-X.XX.X.app. 你应该可以得到类似 Exponent-X.XX.X.app这样的目录文件。<br>
+确定模拟器是在运行的.<br>
+启动一个终端, 运行如下代码 xcrun simctl install booted [path to Exponent-X.XX.X.app].*</p>
+<!-- more -->
+<h1 id="但操作起来还需要注意以下">但操作起来还需要注意以下：</h1>
+<ul>
+<li>要把下载的文件放在你当前的路径。</li>
+<li><code>mkdir Exponent-X.XX.X.app &amp;&amp; tar xvf Exponent-X.XX.X.tar.gz -C Exponent-X.XX.X.app</code>改为<code>mkdir Exponent-X.XX.X.app &amp;&amp; tar zxvf Exponent-X.XX.X.tar.gz -C Exponent-X.XX.X.app</code></li>
+<li>再运行<code>xcrun simctl install booted /Users/ Exponent-X.XX.X.app</code></li>
+<li>然后就出现在模拟器了<br>
+<img src="https://LoseRecall.github.io/post-images/1563417525600.png" alt=""></li>
+</ul>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%98%E6%96%B9%E7%BB%99%E7%9A%84%E6%96%B9%E6%B3%95">官方给的方法：</a></li>
+<li><a href="#%E4%BD%86%E6%93%8D%E4%BD%9C%E8%B5%B7%E6%9D%A5%E8%BF%98%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%A5%E4%B8%8B">但操作起来还需要注意以下：</a></li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://LoseRecall.github.io/post/hello-gridea">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
         
 
         
