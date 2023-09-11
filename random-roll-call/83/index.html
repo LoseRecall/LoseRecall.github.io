@@ -28,6 +28,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: ff 0.9s linear infinite;
+            margin-bottom: 40px;
         }
         @keyframes ff{
             to{filter: hue-rotate(360deg);}
@@ -91,13 +92,13 @@
             {
                 time=window.clearInterval(time);
                 // 按钮文字从stop变为start；
-                button.innerHTML='start';
+                button.innerHTML='开始';
                 // 标志变更
                 flag=true;
             }else{
                 // 当flag标志为true时，开始刷新，文字变更
                 time=self.setInterval("clock()",30);
-                button.innerHTML='stop';
+                button.innerHTML='暂停';
                 flag=false;
             }
         }
