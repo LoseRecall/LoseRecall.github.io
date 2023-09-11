@@ -1,0 +1,129 @@
+ <!-- HTML结构 -->
+ <div class="wrapper">
+    <!-- 标题部分 -->
+    <h1 style="text-align: center;">八四班</h1>
+    <!-- 
+     每一个名字就是一个li
+     -->
+    <ul class="box">
+    </ul>
+    <div class="click">
+      <!-- 按钮：开始和停止按钮 -->
+      <button class="start">开始/停止</button>
+    </div>
+ </div>
+
+ <style>
+     /* css样式 */
+  body {
+    background-color: rgb(245, 246, 236);
+  }
+
+  /* 点名器主界面 */
+  .wrapper {
+    margin: 100px auto;
+    border: 1px solid #ddd;
+    width: 1500px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* 包裹所有li的容器 */
+  .box {
+    width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* 每个li的样式 */
+  .box li {
+    vertical-align: top;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    border: 2px solid rgb(92, 147, 163);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 50px;
+    margin: 5px;
+  }
+
+  /* 按钮样式 */
+  .wrapper button {
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    font-weight: bolder;
+    color: rgb(216, 148, 125);
+    background: #eee;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 15%);
+    transition: all .5s;
+  }
+
+  .wrapper button {
+    display: inline-block;
+  }
+
+  .wrapper .click:hover button {
+    color: #df6b44;
+  }
+
+ </style>
+
+ <script>
+     /*js部分*/
+ //准备数据
+ var nameString = new String(
+      "赵天雨,宋玉琪,毛青,景天云,李岚,高紫煊,惠欣怡,党依琳,郭灵依,孙韶宣,曾傲雪,邢思怡,王凤宇,惠筱婷,党佳鑫,郭艺菁,邓彬,王夏改,顾嘉萍,欧华睿,党瑞玲,许雅欣,许梦雅,金君慧,刘旭丹,张鑫淼,李新语,刘欣雅,张金珠,李琳悦,杨淼淼,李佳玉,惠永晓,司思,崔圣歌,王羽欣,刘晴,王淑雅,李洁琳,刘益民,陈宇轩,王哲,刘宗蒴,许新源,许呈祥,王家城,李昊润,李连湘,常山宝,杨光耀,唐顺潇,乔俊东,郭梦羿,李沂峰,王猛猛,张扬"
+    );
+    // 获取ul，存名字的父类
+    var box = document.querySelector(".box")
+    //获取开始/停止的按钮
+    var start = document.querySelector(".start");
+    //将数据字符串按照逗号为间隔变成一个数组
+    var arr = nameString.split(",")
+    //遍历数组，将数组中每一个元素前后加上li标签。
+    var str = "";/*str保存内容和标签*/
+    for (var i = 0; i < arr.length; i++) {
+      str += `<li>${arr[i]}</li>`
+    }
+    // 讲保存的内容和标签插入box中（将所有li以及li中的内容保存到ul中）
+    box.innerHTML = str;
+    //保存上一次幸运同学的下标。
+    var last_index = 0;
+    // 保存定时器的ID
+    var timer = null;
+    start.onclick = function () {
+      //已经开启了定时器，则点击start按钮，表示关闭，反之，表示开启定时器。
+      //如何判断是否开启了定时器？  判断是否有这个定时器的ID
+      if (timer) {
+        //定时器已经开启了，我们需要关闭
+        clearInterval(timer)
+        //将timer的值清空
+        timer = null;
+      } else {
+        //定时器没有开启，我们需要开启
+        timer = setInterval(function () {
+          //生成随机数，作为索引去找对应的学生
+          var index = getRandom(0, arr.length - 1);
+          //获取所有的li标签。
+          var lis = document.querySelectorAll("ul.box>li");
+          //在生成新的幸运同学之前，需要将之前的幸运同学的颜色去掉
+          lis[last_index].style.backgroundColor = "";
+          //给新的同学加上颜色
+          lis[index].style.backgroundColor = "CCFF99";
+          //将新同学的下标赋值给 last_index
+          last_index = index;
+        }, 20)
+      }
+    }
+    //用于生成n~m之间的随机数
+    function getRandom(n, m) {
+      return Math.floor(Math.random() * (m - n + 1) + n);
+    }
+
+ </script>
+  
