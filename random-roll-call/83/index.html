@@ -1,107 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>随机点名</title>
-    <style>
-        /* 初始化页面，清除所有元素的内外边距 */
-        *{
-            padding: 0;
-            margin: 0;
-            /* 设置背景颜色为414141 */
-            background-color: #222222;
-        }
-        /* 盒子居中 */
-        div{
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            text-align: center;
-        }
-        /* 使用上期视频的文字渐变效果，再加一点点文字阴影 */
-        span,h2{
-        	text-shadow: 0 0 10px #dfd8d8;
-            background: linear-gradient(135deg,#14ffe9,#ffeb3b,#ff00e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: ff 0.9s linear infinite;
-            margin-bottom: 40px;
-        }
-        @keyframes ff{
-            to{filter: hue-rotate(360deg);}
-        }
-        /* 设置一下字体大小 */
-        h2{
-            font-size: 45px;
-        }
-        span{
-            font-size: 46px;
-        }
-
-
-        /* 按钮居中 */
-        button{
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 80px;
-            height: 30px;
-            box-shadow: 0 0 5px #fff;
-            /* 取消轮廓线 */
-            outline: none;
-            background-color: gray;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <h2>随机点名</h2>
-        <span id="name"></span>
+ <!-- HTML结构 -->
+ <div class="wrapper">
+    <!-- 标题部分 -->
+    <h1 style="text-align: center;">八三班</h1>
+    <!-- 
+     每一个名字就是一个li
+     -->
+    <ul class="box">
+    </ul>
+    <div class="click">
+      <!-- 按钮：开始和停止按钮 -->
+      <button class="start">开始/停止</button>
     </div>
-    <button id="button_text">暂停</button>
+ </div>
 
+ <style>
+     /* css样式 */
+  body {
+    background-color: rgb(245, 246, 236);
+  }
 
-    <script>
-        // 获取标签
-        let nametxt=document.getElementById('name');
-        let button=document.getElementById('button_text');
-        // 创建一个数组存储名字
-        let uname=['侯家琦', '黄兆洁', '欧振宇', '李灿 ','毛艳斌', '秦金琪', '吴谦 ','贾怡雪', '史勇平', '李欣杨', '黄依帆', '王玄玉', '何栋秋', '毛枫烨', '毛子和', '蒋欣雨', '仝照好', '杨尚杰', '曲家祥', '赵建业', '郭奕诺', '毛歆予', '周晓涵', '刘佳怡', '王怡璇', '赵道初', '柳雨桐', '曾遥 ','张杰 ','刘雅涵', '常莎 ','梁浩轩', '李昊展', '赵婧 ','崔子贤', '李想 ','赵莹玉', '刘东洋', '牟含笑', '赵振岭', '刘婉巧', '邱钰峰', '和若璇', '李馨怡', '刘永恒', '郭世博', '王瑞林', '赵子龙', '王怡婷', '代娇 ','葛明志', '黄昱达', '尹天扬', '李雅茹', '武振宇', '李金梦', '李维哲', '吴聪 ','侯善文', '刘景皓', '张振杰', '徐远政', '惠赫扬', '欧建勇', '张悦 ','赵鹤翔'];
-        // 创建一个函数生成随机数字
-        function getrandom(min,max){
-            return Math.floor(Math.random()*(max-min-1)+min);
-        }
-        function clock(){
-            // 通过获取一个随机的数组下标实现随机获取一个名字，并将这个名字赋值给变量random
-            let random=uname[getrandom(0,uname.length-1)];
-            //将random塞到span里
-            nametxt.innerHTML=random;
-        };
-        // 打印名字已经实现了，下一步让没点击按钮前名字一直刷新
-        // 设置不停止时名字的刷新速度为30毫秒
-        let time=self.setInterval("clock()",30);
-        // 将开始与停止按钮绑定到按钮上，并通过按钮控制
-        let flag=false;
-        button.onclick=function(){
-            // 当flag标志为false时，点击按钮让刷新停止；
-            if(flag==false)
-            {
-                time=window.clearInterval(time);
-                // 按钮文字从stop变为start；
-                button.innerHTML='开始';
-                // 标志变更
-                flag=true;
-            }else{
-                // 当flag标志为true时，开始刷新，文字变更
-                time=self.setInterval("clock()",30);
-                button.innerHTML='暂停';
-                flag=false;
-            }
-        }
-    </script>
-</body>
-</html>
+  /* 点名器主界面 */
+  .wrapper {
+    margin: 100px auto;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    position: absolute;
+  }
+
+  /* 包裹所有li的容器 */
+  .box {
+    width: 90%;
+    margin-left: 0px;
+  }
+
+  /* 每个li的样式 */
+  .box li {
+    vertical-align: top;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    border: 2px solid rgb(92, 147, 163);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 50px;
+    margin: 5px;
+  }
+
+  /* 按钮样式 */
+  .wrapper button {
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    color: rgb(216, 148, 125);
+    background: #eee;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 15%);
+    transition: all .5s;
+  }
+
+  .wrapper button {
+    display: inline-block;
+  }
+
+  .wrapper .click:hover button {
+    color: #df6b44;
+  }
+
+ </style>
+
+ <script>
+     /*js部分*/
+ //准备数据
+ var nameString = new String(
+      "侯家琦,黄兆洁,欧振宇,李灿,毛艳斌,秦金琪,吴谦,贾怡雪,史勇平,李欣杨,黄依帆,王玄玉,何栋秋,毛枫烨,毛子和,蒋欣雨,仝照好,杨尚杰,曲家祥,赵建业,郭奕诺,毛歆予,周晓涵,刘佳怡,王怡璇,赵道初,柳雨桐,曾遥,张杰,刘雅涵,常莎,梁浩轩,李昊展,赵婧,崔子贤,李想,赵莹玉,刘东洋,牟含笑,赵振岭,刘婉巧,邱钰峰,和若璇,李馨怡,刘永恒,郭世博,王瑞林,赵子龙,王怡婷,代娇,葛明志,黄昱达,尹天扬,李雅茹,武振宇,李金梦,李维哲,吴聪,侯善文,刘景皓,张振杰,徐远政,惠赫扬,欧建勇,张悦,赵鹤翔"
+    );
+    // 获取ul，存名字的父类
+    var box = document.querySelector(".box")
+    //获取开始/停止的按钮
+    var start = document.querySelector(".start");
+    //将数据字符串按照逗号为间隔变成一个数组
+    var arr = nameString.split(",")
+    //遍历数组，将数组中每一个元素前后加上li标签。
+    var str = "";/*str保存内容和标签*/
+    for (var i = 0; i < arr.length; i++) {
+      str += `<li>${arr[i]}</li>`
+    }
+    // 讲保存的内容和标签插入box中（将所有li以及li中的内容保存到ul中）
+    box.innerHTML = str;
+    //保存上一次幸运同学的下标。
+    var last_index = 0;
+    // 保存定时器的ID
+    var timer = null;
+    start.onclick = function () {
+      //已经开启了定时器，则点击start按钮，表示关闭，反之，表示开启定时器。
+      //如何判断是否开启了定时器？  判断是否有这个定时器的ID
+      if (timer) {
+        //定时器已经开启了，我们需要关闭
+        clearInterval(timer)
+        //将timer的值清空
+        timer = null;
+      } else {
+        //定时器没有开启，我们需要开启
+        timer = setInterval(function () {
+          //生成随机数，作为索引去找对应的学生
+          var index = getRandom(0, arr.length - 1);
+          //获取所有的li标签。
+          var lis = document.querySelectorAll("ul.box>li");
+          //在生成新的幸运同学之前，需要将之前的幸运同学的颜色去掉
+          lis[last_index].style.backgroundColor = "";
+          //给新的同学加上颜色
+          lis[index].style.backgroundColor = "CCFF99";
+          //将新同学的下标赋值给 last_index
+          last_index = index;
+        }, 20)
+      }
+    }
+    //用于生成n~m之间的随机数
+    function getRandom(n, m) {
+      return Math.floor(Math.random() * (m - n + 1) + n);
+    }
+
+ </script>
+  
