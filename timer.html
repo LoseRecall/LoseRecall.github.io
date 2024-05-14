@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Countdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .countdown {
+    text-align: center;
+  }
+
+  .countdown h1 {
+    font-size: 5em; /* Larger font size */
+    margin: 0;
+  }
+
+  .countdown p {
+    font-size: 2em; /* Larger font size */
+    margin: 0;
+  }
+
+  .circle {
+    position: relative;
+    width: 300px; /* Larger circle size */
+    height: 300px; /* Larger circle size */
+    border-radius: 50%;
+    background-color: #444;
+    animation: pulse 2s infinite alternate;
+  }
+
+  .inner-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px; /* Larger inner circle size */
+    height: 240px; /* Larger inner circle size */
+    border-radius: 50%;
+    background-color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      background-color: #444;
+    }
+    100% {
+      transform: scale(1.1);
+      background-color: #555;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="countdown">
+  <div class="circle">
+    <div class="inner-circle">
+      <h1 id="time">02:00</h1>
+      <!-- <p></p> -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // Set the countdown time (in seconds)
+  var countdownTime = 120;
+
+  // Function to update the countdown
+  function updateCountdown() {
+    var minutes = Math.floor(countdownTime / 60);
+    var seconds = countdownTime % 60;
+    document.getElementById('time').textContent = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+    countdownTime--;
+    if (countdownTime < 0) {
+      clearInterval(interval);
+      document.getElementById('time').textContent = '结束';
+    }
+  }
+
+  // Initial call to update countdown
+  updateCountdown();
+
+  // Update the countdown every second
+  var interval = setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
