@@ -1,0 +1,27 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.solex.develop.NFCDemo",
+        "paths": [
+          "/nfc/*",
+          "/tag/*",
+          "/open/*",
+          "/launch/*",
+          "*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.com.solex.develop.NFCDemo"
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "TEAMID.com.solex.develop.NFCDemo.Clip"
+    ]
+  }
+}
