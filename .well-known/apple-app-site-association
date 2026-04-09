@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.solex.develop.NFCDemo",
+        "appID": "8C46327334.com.solex.develop.NFCDemo",
         "paths": [
           "/nfc/*",
           "/tag/*",
@@ -16,12 +16,12 @@
   },
   "webcredentials": {
     "apps": [
-      "TEAMID.com.solex.develop.NFCDemo"
+      "8C46327334.com.solex.develop.NFCDemo"
     ]
   },
   "appclips": {
     "apps": [
-      "TEAMID.com.solex.develop.NFCDemo.Clip"
+      "8C46327334.com.solex.develop.NFCDemo.Clip"
     ]
   }
 }
