@@ -1,1 +1,3 @@
-include: [".well-known"]
+include:
+  - _headers
+  - .well-known
